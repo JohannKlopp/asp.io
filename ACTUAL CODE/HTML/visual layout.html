@@ -1,0 +1,126 @@
+<!-- This file creates the button grid and the changes in class for the visual layout -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> visual layout </title>
+    <link rel="stylesheet" type="text/css" href="../CSS/css.css">
+    <script src="../JS/participants allocation.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+<body>
+      <h1> Please, enter your visual layout. </h1>
+      <div class="buttoncontainer">
+      </div>
+      <script>
+      /* creates all the buttons needed for visual layout */
+      var rows = 40
+      var columns = 15;
+      for (var i = 0; i < rows; i++) {
+        for (var j = 0; j < columns; j++) {
+          $('div').append('<button class="whitebtn">_________</button>');
+        }
+        $('div').append('<br>');
+      }
+      </script>
+
+      <script>
+      /* function reads the cookie */
+      function readCookie(name) {
+          var nameEQ = name + "=";
+          var ca = document.cookie.split(';');
+          for(var i=0;i < ca.length;i++) {
+              var c = ca[i];
+              while (c.charAt(0)==' ') c = c.substring(1,c.length);
+              if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+          }
+          return null;
+      }
+      participants = readCookie("pCookie").split(",");
+      console.log(participants);
+
+        /* clicked button changes the colour and adds the first participant? */
+        $('button').click(function() {
+          toggleColour(this);
+        /*  $(this).html(participants.shift()); */
+        });
+        /* function to change between the three button classes */
+        function toggleColour(btn) {
+          var existingClass = $(btn).attr('class');
+          console.log(existingClass);
+          if (existingClass == 'bluebtn') {
+            /* if existing class is blue, then change to white */
+            $(btn).removeClass('bluebtn').addClass('whitebtn');
+          } else if (existingClass == 'whitebtn') {
+            /* if existing class is white, then change to green */
+            $(btn).removeClass('whitebtn').addClass('greenbtn');
+          }
+          else {
+            /* if existing class is green, change to blue */
+            $(btn).removeClass('greenbtn').addClass('bluebtn');
+          }
+      }
+
+      </script>
+
+      <script>
+        $(document).ready(function() {
+          var $createSP = $('#createSP');
+          $createSP.click(function() {
+            var currentCookie = readCookie("pCookie").split(",");
+            var allgreenButtons = document.getElementsByClassName('greenbtn');
+            console.log(allgreenButtons);
+            var arrayedButtons = Array.from(allgreenButtons);
+            console.log(arrayedButtons);
+            //-----------------------------------------------------------------
+            for (var i = -1 ; i <= currentCookie.length + 1; i = i + 1){
+              var randomNameIndex = Math.floor(Math.random() * currentCookie.length);
+              var randomNameSplice = currentCookie.splice(randomNameIndex, 1);
+              console.log(randomNameSplice);
+              //console.log(currentCookie);
+              //for (var j = -1 ; j <= arrayedButtons.length + 1; j = j + 1){
+                var randomButtonIndex = Math.floor(Math.random() * arrayedButtons.length);
+                var randomButtonSplice = arrayedButtons.splice(randomButtonIndex, 1);
+                console.log(randomButtonSplice);
+              //}
+              //  console.log(arrayedButtons);
+                //for (var k = -1; k <= currentCookie.length + 1; k = k + 1){
+                $(randomButtonSplice).text(randomNameSplice);
+            }
+              //randomButtonSplice.pop();
+
+
+
+              //---------------------------------------------------------------
+              // creating separate for loop to get random greenbtn, and put both results from both
+              //loops together at the end (end would be outise both loops, inside a separate function?)
+
+
+              /*$('.greenbtn').text(randomSplice);*/
+              /*get a random value from array, make that value be content of 1 green button*/
+
+
+          });
+        });
+
+      </script>
+      <!-- first thing in the morning: from cookie create list of values (parse values into array) -->
+      <!-- parse cookie values in loop durch bis alle values einen button haben,  iterate over list of values
+      from cookie with for loop bis green button gefunden wurde,
+      der noch keinen value hat. Tu das, bis alle values verbraucht sind-->
+
+      <br></br>
+
+      <button id='createSP'>Create</button>
+
+      <!-- button to go to previous page -->
+      <button id="navbutton" onclick="backtopi()"> Go back to participants input</button>
+      <script> function backtopi(){
+        window.location.href="participants input.html";
+      }
+      </script>
+</body>
+</html>
+
+
+</body>
+</html>
