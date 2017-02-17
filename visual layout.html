@@ -6,11 +6,16 @@
     <link rel="stylesheet" type="text/css" href="css.css">
     <script src="participants allocation.js"> </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   </head>
 <body>
-      <h1> Please, enter your visual layout. </h1>
-      <div class="buttoncontainer">
-      </div>
+      <h1> Please, enter your visual layout by clicking on any of the white boxes below. </h1>
+      <p>Your tools:</p>
+      <ul>
+          <li><strong id='greenChair'>Green</strong> box: <strong>chair</strong> - your participants will be seated here. (1 click)</li>
+          <li><strong id='blueTable'>Blue</strong> box: <strong>table</strong> (2 clicks)</li>
+      </ul>
+      <div class="buttoncontainer"></div>
       <script>
       /* creates all the buttons needed for visual layout */
       var rows = 40

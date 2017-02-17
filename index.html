@@ -4,6 +4,8 @@
   <title> Homepage </title>
   <link rel="stylesheet" type="text/css" href="css.css">
   <script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
 
@@ -11,19 +13,20 @@
       <h2 style="color:green"> Get started: </h2>
 
       <p></p>
-      <!-- button to go to next page -->
-      <button onclick="backtopi()">Start at participants input</button>
-      <script> function backtopi(){
-        window.location.href="participants input.html";
-        }
-      </script>
-
       <form action="?" method="POST">
-            <div class="g-recaptcha" data-sitekey="6Ley6xUUAAAAAH2TqhVolOs_zGPijEmhoL6DemVA" data-theme="dark"></div>
+            <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6Ley6xUUAAAAAH2TqhVolOs_zGPijEmhoL6DemVA" data-theme="dark"></div>
             <br/>
-            <!-- <input type="submit" value="Submit"> -->
       </form>
-
-
+      <button onclick="toPI()" id="continueBtn" style="cursor:not-allowed" disabled >Continue</button>
+      <script>
+        function recaptchaCallback(){
+          $('#continueBtn').css('cursor', 'default');
+          $('#continueBtn').removeAttr('disabled');
+          console.log("function triggered");
+        };
+        function toPI(){
+          window.location.href="participants input.html";
+        };
+      </script>
 </body>
 </html>

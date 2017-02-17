@@ -1,5 +1,6 @@
 body{
   width:1300px;
+  font-family: 'Lato',sans-serif;
 }
 
 .whitebtn {
@@ -40,6 +41,7 @@ body{
   padding-left: 0px;
   max-width: 300px;
   min-width: 85px;
+  text-transform: capitalize;
 
 }
 .bluebtn{
@@ -83,4 +85,11 @@ a:link {
 
 #navbutton{
   background-color: #ffffff;
+}
+
+#greenChair{
+  color: #00ff00;
+}
+#blueTable{
+  color: #0000ff;
 }
