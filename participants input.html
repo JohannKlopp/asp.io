@@ -7,14 +7,19 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
-  <h1>Please, enter the participants of your event in the designated area below.</h1>
-  <h2> Please make sure that one line is for only one name: </h2>
+  <br>
+  <div style="width: 620px">
+    <strong>
+      Please, enter the participants of your event in the designated area below.<br><br>
+      Make sure you enter one name per line
+      and don't forget to count the number of participants as
+      they need to equal the number of designated buttons you'll enter later.
+    </strong>
+  </div>
+  <br><br><br><br>
   <!-- Participants input text field-->
   <textarea rows="30" cols="8" spellcheck="false" id="myTextarea"></textarea>
   <p>
-    <!-- this button triggers the nested functions in the script tags below -->
-  <button onclick="pCandVL()">Continue to visual layout</button>
-
   <script>
     /* this function triggers the next function to create a cookie + it navigates to the next webpage (2 parts) */
     function pCandVL(){
@@ -39,14 +44,15 @@
       window.location.href="visual layout.html";
     }
   </script>
-
+  <br><br><br><br>
   <!-- button to go back to home page -->
-  <button onclick="backToHomepage()">Go back to homepage</button>
+  <button onclick="backToHomepage()">Back</button>
   <script> function backToHomepage(){
     window.location.href="index.html";
     }
   </script>
-
+  <!-- this button triggers the nested functions in the script tags below -->
+<button onclick="pCandVL()">Continue</button>
   </p>
 </body>
 </html>
