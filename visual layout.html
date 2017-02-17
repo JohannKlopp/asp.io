@@ -3,8 +3,8 @@
 <html>
   <head>
     <title> visual layout </title>
-    <link rel="stylesheet" type="text/css" href="../CSS/css.css">
-    <script src="../JS/participants allocation.js"> </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script src="participants allocation.js"> </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
 <body>
@@ -68,25 +68,22 @@
           $createSP.click(function() {
             var currentCookie = readCookie("pCookie").split(",");
             var allgreenButtons = document.getElementsByClassName('greenbtn');
-            console.log(allgreenButtons);
             var arrayedButtons = Array.from(allgreenButtons);
+            console.log(currentCookie.length);
             console.log(arrayedButtons);
             //-----------------------------------------------------------------
-            for (var i = -1 ; i <= currentCookie.length + 1; i = i + 1){
+            var i;
+            for (i = -currentCookie.length + 1; i <= currentCookie.length; i = i + 1){
               var randomNameIndex = Math.floor(Math.random() * currentCookie.length);
               var randomNameSplice = currentCookie.splice(randomNameIndex, 1);
               console.log(randomNameSplice);
-              //console.log(currentCookie);
-              //for (var j = -1 ; j <= arrayedButtons.length + 1; j = j + 1){
-                var randomButtonIndex = Math.floor(Math.random() * arrayedButtons.length);
-                var randomButtonSplice = arrayedButtons.splice(randomButtonIndex, 1);
-                console.log(randomButtonSplice);
-              //}
-              //  console.log(arrayedButtons);
-                //for (var k = -1; k <= currentCookie.length + 1; k = k + 1){
-                $(randomButtonSplice).text(randomNameSplice);
+              var randomButtonIndex = Math.floor(Math.random() * arrayedButtons.length);
+              var randomButtonSplice = arrayedButtons.splice(randomButtonIndex, 1);
+              console.log(randomButtonSplice);
+
+              $(randomButtonSplice).text(randomNameSplice);
             }
-              //randomButtonSplice.pop();
+
 
 
 
@@ -97,8 +94,6 @@
 
               /*$('.greenbtn').text(randomSplice);*/
               /*get a random value from array, make that value be content of 1 green button*/
-
-
           });
         });
 
