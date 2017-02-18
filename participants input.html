@@ -8,15 +8,17 @@
 </head>
 <body>
   <br>
-  <div style="width: 620px">
+  <div id="pInstructions">
     <strong>
-      Please, enter the participants of your event in the designated area below.<br><br>
-      Make sure you enter one name per line
-      and don't forget to count the number of participants as
-      they need to equal the number of designated buttons you'll enter later.
+      <span style="font-size: 22px">Please, enter the participants of your event in the designated area below.</span><br><br>
+      <span style="color:cornflowerblue">
+        Make sure you hit ENTER after each name to allocate one name per line.
+        <!-- Also, please don't forget to count the number of participants as
+        they need to equal the number of designated seats you'll enter later. -->
+      </span>
     </strong>
   </div>
-  <br><br><br><br>
+  <br><br>
   <!-- Participants input text field-->
   <textarea rows="30" cols="8" spellcheck="false" id="myTextarea"></textarea>
   <p>
@@ -40,11 +42,20 @@
             console.log(document.cookie);
           }
       createCookie("pCookie",parsedparticipants, 100);
-      /* 2nd part: button navigates to next page namely the visual layout */
-      window.location.href="visual layout.html";
+    //------------------------------------------------------------------
+    var txt;
+    var r = confirm("Hang on! Are you sure your list of participants is complete? Unfortunately, you won't be able to edit it beyond this point.");
+    if (r == true) {
+        txt = window.location.href="visual layout.html";
+      } else {
+        //txt = "You pressed Cancel!";
+      }
     }
+      /* 2nd part: button navigates to next page namely the visual layout */
+      //window.location.href="visual layout.html";
+
   </script>
-  <br><br><br><br>
+  <br>
   <!-- button to go back to home page -->
   <button onclick="backToHomepage()">Back</button>
   <script> function backToHomepage(){

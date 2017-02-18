@@ -8,17 +8,19 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   </head>
 <body>
-      <h1> Please, enter your visual layout by clicking on any of the white boxes below. </h1>
-      <p>Your tools:</p>
+      <h1 style="color:orange"> Please, enter your visual layout by clicking on any of the white boxes below. </h1>
+      <p style="color:cornflowerblue; font-weight: bold">Your tools:</p>
       <ul>
-          <li><strong id='greenChair'>Green</strong> box: <strong>chair</strong> - your participants will be seated here. (1 click)</li>
-          <li><strong id='blueTable'>Blue</strong> box: <strong>table</strong> (2 clicks)</li>
+          <li><strong id='greenChair'>Green</strong> box &rarr;  <strong>chair</strong>, your participants will be seated here. <span style="color:cornflowerblue">(1 click)</span></li>
+          <li><strong id='blueTable'>Blue</strong> box &rarr;  <strong>table</strong> <span style="color:cornflowerblue">(2 clicks)</span></li>
       </ul>
-      <div class="buttoncontainer"></div>
+      <p id="amountOfPs" style="color:cornflowerblue; font-weight: bold">
+      </p>
 
+      <div id="buttoncontainer"></div>
       <script>
-      /* creates all the buttons needed for the visual layout. */
-      var rows = 40
+      /* creates all the buttons for the visual layout. */
+      var rows = 30;
       var columns = 15;
       for (var i = 0; i < rows; i++) {
         for (var j = 0; j < columns; j++) {
@@ -40,7 +42,7 @@
           }
           return null;
       }
-      participants = readCookie("pCookie").split(",");
+      var participants = readCookie("pCookie").split(",");
       console.log(participants);
 
         /* clicked button changes the colour and adds the first participant? */
@@ -91,7 +93,16 @@
           });
         });
       </script>
-      <br></br>
+      <script>
+      var currentCookie = readCookie("pCookie").split(",");
+      window.onload = function numberofPs(){
+      parent.document.getElementById("amountOfPs").innerHTML = "You have entered" + " " + currentCookie.length + " " + "names, so you'll also need to have" + " " + currentCookie.length + " " + "green boxes.";
+      }
+      </script>
+      <br>
+      <p style="color:cornflowerblue; font-weight: bold">When you are happy with your seating plan, be sure to print it from your Chrome interface (Ctrl + P).</p>
+      <p style="color:orange; font-weight: bold">Thanks for stopping by and have an amazing day!</p>
+      <br>
       <!-- button to go to previous page -->
       <button id="navbutton" onclick="backtopi()">Back</button>
       <script> function backtopi(){

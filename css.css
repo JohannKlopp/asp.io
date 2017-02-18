@@ -65,21 +65,21 @@ body{
   min-width: 85px;
 }
 
+#buttoncontainer{
+
+}
+
 #myTextarea{
   font-family: "Courier New", Courier, monospace;
   resize:none;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  border: 3px solid red;
   text-transform: capitalize;
 }
-
 #createSP{
   background-color: #ff0101;
   color: white;
 }
-
-
 a:link {
   text-decoration: none;
   background-color: blue;
@@ -94,4 +94,8 @@ a:link {
 }
 #blueTable{
   color: #0000ff;
+}
+#pInstructions{
+  width: 540px;
+  color:orange;
 }
