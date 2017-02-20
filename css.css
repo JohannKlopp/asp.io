@@ -4,7 +4,10 @@ body{
   font-weight: 400;
 }
 
-.whitebtn {
+/*.whitebtn, .greenbtn and .bluebtn are the three types
+    of buttons classes for all buttons in the button grid
+    between which a script will switch per click.*/
+.whitebtn{
     background-color: #ffffff;
     border: 0.5px solid black;
     color: white;
@@ -22,12 +25,12 @@ body{
     padding-left: 0px;
     max-width: 300px;
     min-width: 85px;
-
 }
+
 .greenbtn{
   background-color: #00ff00;
   border: 0.1px solid black;
-  color: black, /*#00ff00*/;
+  color: black;
   padding: 15px 38px;
   text-align: center;
   text-decoration: none;
@@ -43,8 +46,8 @@ body{
   max-width: 300px;
   min-width: 85px;
   text-transform: capitalize;
-
 }
+
 .bluebtn{
   background-color: #0000ff;
   border: 0.5px solid black;
@@ -65,10 +68,9 @@ body{
   min-width: 85px;
 }
 
-#buttoncontainer{
 
-}
-
+/*text-transform capitalises every word entered into the textarea
+  improving the user experience.*/
 #myTextarea{
   font-family: "Courier New", Courier, monospace;
   resize:none;
@@ -76,14 +78,16 @@ body{
   border: 3px solid red;
   text-transform: capitalize;
 }
+
+/*Improves recognizability of "Create" button on visual layout page.*/
 #createSP{
   background-color: #ff0101;
   color: white;
 }
-a:link {
+/*a:link {
   text-decoration: none;
   background-color: blue;
-}
+}*/
 
 #navbutton{
   background-color: #ffffff;

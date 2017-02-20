@@ -3,9 +3,9 @@
 <head>
   <title> participants input </title>
   <link rel="stylesheet" type="text/css" href="css.css">
-  <script src="participants allocation.js"> </script>
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
+
 <body>
   <br>
   <div id="pInstructions">
@@ -18,11 +18,7 @@
   </div>
   <br><br>
   <!-- Participants input text field-->
-  <textarea rows="30" cols="8" spellcheck="false" id="myTextarea"style="font-family: "Courier New", Courier, monospace;
-  resize:none;
-  display: block;
-  border: 3px solid red;
-  text-transform: capitalize;"></textarea>
+  <textarea rows="30" cols="8" spellcheck="false" id="myTextarea"></textarea>
   <p>
   <script>
     /* this function triggers the next function to create a cookie + it navigates to the next webpage (2 parts) */
@@ -49,8 +45,8 @@
     var r = confirm("Hang on! Are you sure your list of participants is complete? Unfortunately, you won't be able to edit it beyond this point. Press 'Ok', if the list is complete.");
     if (r == true) {
         txt = window.location.href="visual layout.html";
-      } else {
-        //txt = "You pressed Cancel!";
+      }
+    else {
       }
     }
       /* 2nd part: button navigates to next page namely the visual layout */
