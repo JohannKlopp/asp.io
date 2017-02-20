@@ -84,21 +84,18 @@ body{
   background-color: #ff0101;
   color: white;
 }
-/*a:link {
-  text-decoration: none;
-  background-color: blue;
-}*/
 
-#navbutton{
-  background-color: #ffffff;
-}
-
+/* Added #greenChair and #blueTable to illustrate "Green" and "Blue"
+on the visual layout page with their respective colours.*/
 #greenChair{
   color: #00ff00;
 }
 #blueTable{
   color: #0000ff;
 }
+
+/*Added to colour part of the instructions on participants input page
+to create uniformity among the illustrations of the instructions.*/
 #pInstructions{
   width: 540px;
   color:orange;
