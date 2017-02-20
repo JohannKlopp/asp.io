@@ -1,7 +1,7 @@
 
 /* This function no 1 creates the cookie in which all the participants' names are
 stored in one name-value pair (all names are an array in one value attribute)*/
-
+/*
 function createCookie(name,value,days) {
     if (days) {
         var date = new Date();
@@ -13,7 +13,7 @@ function createCookie(name,value,days) {
 }
 
 /* This function no 2 reads the cookie created by function no 1*/
-function readCookie(name) {
+/*function readCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
     for(var i=0;i < ca.length;i++) {
@@ -25,6 +25,6 @@ function readCookie(name) {
 }
 
 /* This function no 3 deletes the old cookie*/
-function eraseCookie(name) {
+/* function eraseCookie(name) {
     createCookie(name,"",-1);
 }
