@@ -13,8 +13,6 @@
       <span style="font-size: 22px">Please, enter the participants of your event in the designated area below.</span><br><br>
       <span style="color:cornflowerblue">
         Make sure you hit ENTER after each name to allocate one name per line.
-        <!-- Also, please don't forget to count the number of participants as
-        they need to equal the number of designated seats you'll enter later. -->
       </span>
     </strong>
   </div>
@@ -48,7 +46,7 @@
       createCookie("pCookie",parsedparticipants, 100);
     //------------------------------------------------------------------
     var txt;
-    var r = confirm("Hang on! Are you sure your list of participants is complete? Unfortunately, you won't be able to edit it beyond this point.");
+    var r = confirm("Hang on! Are you sure your list of participants is complete? Unfortunately, you won't be able to edit it beyond this point. Press 'Ok', if the list is complete.");
     if (r == true) {
         txt = window.location.href="visual layout.html";
       } else {
