@@ -1,24 +1,38 @@
+<!--
+Author: Johann Klopp
+Purpose: Input of seating plan layout
+Version: 2.0
+-->
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>Visual layout</title>
+    <!-- Link to CSS file -->
     <link rel="stylesheet" type="text/css" href="css.css">
+    <!-- Source of jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Source of Lato font -->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   </head>
-<body>
-      <h1 style="color:orange"> Please, enter your visual layout by clicking on any of the white boxes below. </h1>
-      <p style="color:cornflowerblue; font-weight: bold">Your tools:</p>
-      <ul>
-          <li><strong id='greenChair'>Green</strong> box &rarr;  <strong>chair</strong>, your participants will be seated here. <span style="color:cornflowerblue">(1 click)</span></li>
-          <li><strong id='blueTable'>Blue</strong> box &rarr;  <strong>table</strong> <span style="color:cornflowerblue">(2 clicks)</span></li>
-      </ul>
-      <p id="amountOfPs" style="color:cornflowerblue; font-weight: bold">
-      </p>
 
-      <div id="buttoncontainer"></div>
-      <script>
-      /* creates all the buttons for the visual layout. */
+  <body>
+    <!-- Instructions for visual layout input page -->
+    <h1 style="color:orange"> Please, enter your visual layout by clicking on any of the white boxes below. </h1>
+    <p style="color:cornflowerblue; font-weight: bold">Your tools:</p>
+    <ul>
+      <li><strong id='greenChair'>Green</strong> box &rarr;  <strong>chair</strong>, your participants will be seated here. <span style="color:cornflowerblue">(1 click)</span></li>
+      <li><strong id='blueTable'>Blue</strong> box &rarr;  <strong>table</strong> <span style="color:cornflowerblue">(2 clicks)</span></li>
+    </ul>
+
+    <!-- Reminder of how many names were entered -->
+    <p id="amountOfPs" style="color:cornflowerblue; font-weight: bold"></p>
+
+    <!-- div containing button grid -->
+    <div id="buttoncontainer"></div>
+
+    <!-- Nested for loops to create all the buttons of the button grid -->
+    <script>
       var rows = 30;
       var columns = 15;
       for (var i = 0; i < rows; i++) {
@@ -27,28 +41,33 @@
         }
         $('div').append('<br>');
       }
-      </script>
+    </script>
 
-      <script>
-      /* function reads the cookie */
+    <!-- Values of previously created cookie are now read -->
+    <script>
       function readCookie(name) {
-          var nameEQ = name + "=";
-          var ca = document.cookie.split(';');
-          for(var i=0;i < ca.length;i++) {
-              var c = ca[i];
-              while (c.charAt(0)==' ') c = c.substring(1,c.length);
-              if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-          }
-          return null;
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1,c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
       }
       var participants = readCookie("pCookie").split(",");
       console.log(participants);
+      </script>
 
-        /* clicked button changes the colour and adds the first participant? */
+      <!-- If button in button grid is clicked, its class, thus its colour changes -->
+      <script>
         $('button').click(function() {
           toggleColour(this);
         });
-        /* function to change between the three button classes */
+      </script>
+
+      <!-- Function to change between the three button classes -->
+      <script>
         function toggleColour(btn) {
           var existingClass = $(btn).attr('class');
           console.log(existingClass);
@@ -66,18 +85,19 @@
       }
       </script>
 
-      <!-- This function is triggers the loop to get a random name frmo the cookie
-      and a random green button and match them until all values in the array have been used-->
+      <!-- Function to loop through cookie values and green buttons to get a random name
+      and a random green button and match them until all values in the cookie have been used-->
       <script>
         $(document).ready(function() {
           var $createSP = $('#createSP');
           $createSP.click(function() {
+            /* Values in cookie and green buttons are parsed into an array */
             var currentCookie = readCookie("pCookie").split(",");
             var allgreenButtons = document.getElementsByClassName('greenbtn');
             var arrayedButtons = Array.from(allgreenButtons);
             console.log(currentCookie.length);
             console.log(arrayedButtons);
-            //-----------------------------------------------------------------
+            /* Loop to match randomly picked cookie with randomly picked green button */
             var i;
             for (i = -currentCookie.length + 1; i <= currentCookie.length; i = i + 1){
               var randomNameIndex = Math.floor(Math.random() * currentCookie.length);
@@ -87,27 +107,34 @@
               var randomButtonSplice = arrayedButtons.splice(randomButtonIndex, 1);
               console.log(randomButtonSplice);
 
+              /* Picked name is inserted into text field of picked button */
               $(randomButtonSplice).text(randomNameSplice);
             }
           });
         });
       </script>
+
+      <!-- Function to get the number of names to be added to the names reminder -->
       <script>
-      var currentCookie = readCookie("pCookie").split(",");
-      window.onload = function numberofPs(){
-      parent.document.getElementById("amountOfPs").innerHTML = "You have entered" + " " + currentCookie.length + " " + "names, so you'll also need to have" + " " + currentCookie.length + " " + "green boxes.";
-      }
+        var currentCookie = readCookie("pCookie").split(",");
+        window.onload = function numberofPs(){
+            parent.document.getElementById("amountOfPs").innerHTML = "You have entered" + " " + currentCookie.length + " " + "names, so you'll also need to have" + " " + currentCookie.length + " " + "green boxes.";
+        }
       </script>
+
+      <!-- Final instructions on how to print the seating plan and a positive, forward-looking goodbye -->
       <br>
       <p style="color:cornflowerblue; font-weight: bold">When you are happy with your seating plan, be sure to print it from your Chrome interface (Ctrl + P).</p>
       <p style="color:orange; font-weight: bold">Thanks for stopping by and have an amazing day!</p>
       <br>
-      <!-- button to go to previous page -->
+
+      <!-- Button and its function to go back to participants input page -->
       <button onclick="backtopi()">Back</button>
       <script> function backtopi(){
         window.location.href="participants input.html";
       }
       </script>
+
       <!-- This button triggers the above function (which in turn triggers the loop, etc.)-->
       <button id='createSP'>Create</button>
 
