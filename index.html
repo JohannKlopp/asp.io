@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Homepage </title>
+    <title>Homepage</title>
+    <!-- Link to CSS file to separate most of the styling from structure -->
     <link rel="stylesheet" type="text/css" href="css.css">
+    <!-- Source of reCAPTCHA widget -->
     <script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
+    <!-- Source of jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Source of 'Lato' font to style all pages uniformly in a modern looking font -->
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
+      <!-- Instructions for index pages -->
       <h1 style="color:orange"> The seating plan for your event! </h1>
       <h2 style="color:cornflowerblue">Create it from scratch within minutes (if you already have a list of invitees)!<br>Get started: </h2>
       <p></p>
-
+      <!-- reCAPTCHA widget -->
       <form action="?" method="POST">
         <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6Ley6xUUAAAAAH2TqhVolOs_zGPijEmhoL6DemVA" data-theme="dark"></div>
         <br>
       </form>
-
+      <!-- Initially disabled "Continue" button to redirect to participants input page -->
       <button onclick="toPI()" id="continueBtn" style="cursor:not-allowed" disabled >Continue</button>
 
       <script>
+        /* Function to activate "Continue" button if reCAPTCHA widget was successful */
         function recaptchaCallback(){
           $('#continueBtn').css('cursor', 'default');
           $('#continueBtn').removeAttr('disabled');
           console.log("function triggered");
         };
+        /* Function to redirect to participants input page if "Continue" button clicked */
         function toPI(){
           window.location.href="participants input.html";
         };
       </script>
-      
     </body>
 </html>

@@ -1,65 +1,80 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title> participants input </title>
-  <link rel="stylesheet" type="text/css" href="css.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-</head>
+  <head>
+    <title>Participants input</title>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <!-- Source of Lato font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  </head>
 
-<body>
-  <br>
-  <div id="pInstructions">
-    <strong>
-      <span style="font-size: 22px">Please, enter the participants of your event in the designated area below.</span>
-      <br><br>
-      <span style="color:cornflowerblue">Make sure you hit ENTER after each name to allocate one name per line.</span>
-    </strong>
-  </div>
-  <br><br>
-  <!-- Participants input text field-->
-  <textarea rows="30" cols="8" spellcheck="false" id="myTextarea"></textarea>
-  <script>
-    /* this function triggers the next function to create a cookie + it navigates to the next webpage (2 parts) */
+  <body>
+    <br>
+    <!-- Instructions for participants input page -->
+    <div id="pInstructions">
+      <strong>
+        <span style="font-size: 22px">Please, enter the participants of your event in the designated area below.</span>
+        <br><br>
+        <span style="color:cornflowerblue">Make sure you hit ENTER after each name to allocate one name per line.</span>
+      </strong>
+    </div>
+
+    <br><br>
+    <!--Text field to input names of participants-->
+    <textarea rows="30" cols="8" spellcheck="false" id="myTextarea"></textarea>
+
+    <script>
+    /* Function 'pCandVL' creates a cookie and alerts user through dialogue window */
     function pCandVL(){
+
+      /* Inputs in text area parsed */
       var participants = document.getElementById("myTextarea").value;
       console.log(participants);
       var parsedparticipants = participants.split("\n");
       console.log(parsedparticipants);
 
-      /* 1st part: This function creates the cookie to store the participants' names */
+      /* Cookie to store the participants' names */
       function createCookie(name,value,days) {
         if (days) {
               var date = new Date();
               date.setTime(date.getTime() + (days*24*60*60*1000));
               var expires = "; expires=" + date.toUTCString();
+        }
+            else {
+              var expires = "";
+              document.cookie = name + "=" + value + expires + "; path=/";
+              console.log(document.cookie);
             }
-            else var expires = "";
-            document.cookie = name + "=" + value + expires + "; path=/";
-            console.log(document.cookie);
-          }
+      }
+
+      /* Creation of cookie named 'pCookie' by calling the above function */
       createCookie("pCookie",parsedparticipants, 100);
-    //------------------------------------------------------------------
-    var txt;
-    var r = confirm("Hang on! Are you sure your list of participants is complete? Unfortunately, you won't be able to edit it beyond this point. Press 'OK', if the list is complete.");
-    if (r == true) {
+
+      /* Alert window to confirm that list of names is complete */
+      var txt;
+      var r = confirm("Hang on! Are you sure your list of participants is complete? Unfortunately, you won't be able to edit it beyond this point. Press 'OK', if the list is complete.");
+      if (r == true) {
+        /* If clicked 'OK', "Continue" button redirects to visual layout page */
         txt = window.location.href="visual layout.html";
       }
-    else {
+      else {
       }
     }
-      /* 2nd part: button navigates to next page namely the visual layout */
-      //window.location.href="visual layout.html";
-
   </script>
-  <br>
-  <!-- button to go back to home page -->
-  <button onclick="backToHomepage()">Back</button>
-  <script> function backToHomepage(){
-    window.location.href="index.html";
-    }
-  </script>
-  <!-- this button triggers the nested functions in the script tags below -->
-<button onclick="pCandVL()">Continue</button>
 
-</body>
+    <br>
+    <!-- button to go back to home page -->
+    <button onclick="backToHomepage()">Back</button>
+
+    <script>
+    /* Function which is called by the "Back" button above */
+      function backToHomepage(){
+        window.location.href="index.html";
+      }
+    </script>
+
+    <!-- "Continue" button triggers "pCandVL" function -->
+    <button onclick="pCandVL()">Continue</button>
+
+  </body>
 </html>
