@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title> Homepage </title>
-  <link rel="stylesheet" type="text/css" href="css.css">
-  <script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <head>
+    <title> Homepage </title>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  </head>
 
-</head>
-<body>
-
+  <body>
       <h1 style="color:orange"> The seating plan for your event! </h1>
-      <h2 style="color:cornflowerblue">Create it from scratch within minutes (if you already have a list of invitees)!
-        <br>Get started: </h2>
-
+      <h2 style="color:cornflowerblue">Create it from scratch within minutes (if you already have a list of invitees)!<br>Get started: </h2>
       <p></p>
+
       <form action="?" method="POST">
-            <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6Ley6xUUAAAAAH2TqhVolOs_zGPijEmhoL6DemVA" data-theme="dark"></div>
-            <br/>
+        <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6Ley6xUUAAAAAH2TqhVolOs_zGPijEmhoL6DemVA" data-theme="dark"></div>
+        <br>
       </form>
+
       <button onclick="toPI()" id="continueBtn" style="cursor:not-allowed" disabled >Continue</button>
+
       <script>
         function recaptchaCallback(){
           $('#continueBtn').css('cursor', 'default');
@@ -30,5 +30,6 @@
           window.location.href="participants input.html";
         };
       </script>
-</body>
+      
+    </body>
 </html>
